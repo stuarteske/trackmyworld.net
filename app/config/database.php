@@ -1,39 +1,5 @@
 <?php
-if ( !isset($_SERVER['SERVER_NAME']) ) $hostname = 'prayerplanner.local';
-//if ( !isset($_SERVER['SERVER_NAME']) ) $hostname = 'whatif.local';
-    else $hostname = $_SERVER['SERVER_NAME'];
 
-switch($hostname) {
-    case 'prayerplanner.local':
-        $mySqlArray = array(
-            'driver'    => 'mysql',
-            'unix_socket'   => '/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock',
-            'host'      => 'localhost',
-            'database'  => 'prayerplanner',
-            'username'  => 'prayerplanner',
-            'password'  => 'prayerplanner321',
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
-        );
-        break;
-    case 'whatif.local':
-        $mySqlArray = array(
-            'driver'    => 'mysql',
-            'unix_socket'   => '/tmp/mysql.sock',
-            'host'      => '127.0.0.1',
-            'database'  => 'whatif',
-            'username'  => 'whatif',
-            'password'  => 'cfa15971',
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
-        );
-        break;
-    default:
-        $mySqlArray = array();
-        break;
-}
 
 return array(
 
@@ -87,7 +53,7 @@ return array(
 			'prefix'   => '',
 		),
 
-		'mysql' => $mySqlArray,
+		'mysql' => array(),
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',

@@ -11,9 +11,9 @@ use Facebook\FacebookRedirectLoginHelper;
 
 class FacebookController extends BaseController {
 
-    private $appId = '701815586557016';
-    private $appSecret = '4555bc97f8f56196a919ddd31bbfeabe';
-    private $clientKey = '213bf78185429ea3e0a40f70ce10fd2c';
+    private $appId = '';
+    private $appSecret = '';
+    private $clientKey = '';
     private $socialNetworkName = 'facebook';
 
 
@@ -23,20 +23,10 @@ class FacebookController extends BaseController {
     public function __construct()
     {
         switch($_SERVER['SERVER_NAME']) {
-            case 'prayerplanner.local':
-                // Set the keys
-                $this->setAppId('701815586557016');
-                $this->setAppSecret('4555bc97f8f56196a919ddd31bbfeabe');
-                break;
-            case 'whatif.local':
-                // Set the keys
-                $this->setAppId('1513830048832409');
-                $this->setAppSecret('ae3bba36e7b149437a8b91d3af5fc621');
-                break;
             default:
                 // Set the keys
-                $this->setAppId('701815586557016');
-                $this->setAppSecret('4555bc97f8f56196a919ddd31bbfeabe');
+                $this->setAppId('');
+                $this->setAppSecret('');
                 break;
         }
 
