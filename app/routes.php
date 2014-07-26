@@ -11,9 +11,25 @@
 |
 */
 
+
+// Filters
+Route::filter('cache', function($route, $request, $response = null)
+{
+    $key = 'route-'.Str::slug(Request::url());
+    if(is_null($response) && Cache::has($key))
+    {
+        return Cache::get($key);
+    }
+    elseif(!is_null($response) && !Cache::has($key))
+    {
+        Cache::put($key, $response->getContent(), 30);
+    }
+});
+
+// Routes
 //Route::get('/', 'HomeController@showHome');
-Route::get('/', 'LandingController@index');
-Route::get('landing/index', 'LandingController@index');
+Route::get('/', array('before' => 'cache', 'after' => 'cache', 'uses' => 'LandingController@index'));
+Route::get('landing/index', array('before' => 'cache', 'after' => 'cache', 'uses' => 'LandingController@index'));
 
 
 //Route::get('users', function()
