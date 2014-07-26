@@ -21,7 +21,7 @@ Track My World
 <!-- Header -->
 <header id="top" class="header">
     <div class="text-vertical-center">
-        <img src="/landing/img/logo-512-72.png" class="img-responsive" style="margin: 0 auto;" />
+        <img src="/landing/img/logo-512-72.png" class="img-responsive" style="margin: 0 auto;padding:10px;" />
         <br /><br />
         <h2 style="color: #373939;">Coming soon...</h2>
     </div>
