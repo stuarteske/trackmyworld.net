@@ -158,6 +158,9 @@ datagrid supports also csv output, so it can be used as "report" tool.
    $form->addText('title','Title'); //field name, label
    $form->addTextarea('body','Body')->rule('required');
 
+    //can also support readonly 
+   $form->addText('nickname','Nickname')->mode('readonly');
+
    //then a submit button
    $form->submit('Save');
 
@@ -314,8 +317,14 @@ In `app/config/app.php` add:
 then run: `$ composer update zofe/rapyd`.
 
 
+## Publish & override configuration (optional)
 
-## Publish & integrate assets
+You can quickly publish the configuration file (to override something) 
+by running the following Artisan command.  
+
+    $ php artisan config:publish zofe/rapyd
+
+## Publish & integrate assets (needed)
 
 
 You need to publish the assets from this package.

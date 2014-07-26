@@ -1,5 +1,6 @@
 <?php namespace Zofe\Rapyd\DataForm\Field;
 
+use Illuminate\Support\Facades\Config;
 use Zofe\Rapyd\Widget;
 use Zofe\Rapyd\Helpers\HTML;
 use Illuminate\Support\Facades\Form;
@@ -22,7 +23,7 @@ abstract class Field extends Widget
     public $rel_fq_other_key;
     public $rel_other_key;
 
-    public $attributes = array('class' => 'form-control');
+    public $attributes;
     public $output = "";
     public $visible = true;
     public $extra_output = "";
@@ -78,6 +79,7 @@ abstract class Field extends Widget
     {
         parent::__construct();
 
+        $this->attributes = Config::get('rapyd::field.attributes');
         $this->model = $model;
         $this->model_relations = $model_relations;
 
@@ -226,7 +228,7 @@ abstract class Field extends Widget
 
         $process = (Input::get('search') || Input::get('save')) ? true : false;
 
-        if ($this->request_refill == true && $process) {
+        if ($this->request_refill == true && $process && Input::exists($this->name) ) {
             if ($this->multiple) {
 
                 $this->value = "";
@@ -311,8 +313,8 @@ abstract class Field extends Widget
     public function getNewValue()
     {
         $process = (Input::get('search') || Input::get('save')) ? true : false;
-        //if (Input::get($this->name)) {
-        if ($process) {
+
+        if ($process && Input::exists($this->name)) {
             if ($this->status == "create") {
                 $this->action = "insert";
             } elseif ($this->status == "modify") {
