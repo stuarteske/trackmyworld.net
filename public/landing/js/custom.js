@@ -1,5 +1,4 @@
-<!-- Custom Theme JavaScript -->
-<script>
+
 // Closes the sidebar menu
 $("#menu-close").click(function(e) {
     e.preventDefault();
@@ -28,4 +27,3 @@ return false;
 }
 });
 });
-</script>
