@@ -5,9 +5,13 @@
  * Date: 27/07/2014
  * Time: 14:30
  */
-
-header('Content-type: text/css');
 ob_start("compress");
+header ("content-type: text/css; charset: UTF-8");
+header ("cache-control: must-revalidate");
+$offset = 60 * 60 * 24 * 30;
+$expire = "expires: " . gmdate ("D, d M Y H:i:s", time() + $offset) . " GMT";
+header ($expire);
+
 function compress($buffer) {
     /* remove comments */
     $buffer = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer);
