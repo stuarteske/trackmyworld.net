@@ -11,7 +11,6 @@
 |
 */
 
-
 // Filters
 Route::filter('cache', function($route, $request, $response = null)
 {

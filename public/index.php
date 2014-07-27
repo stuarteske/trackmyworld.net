@@ -7,10 +7,10 @@
  */
 
 // Cache Headers
-Header("Cache-Control: must-revalidate");
-$offset = 60 * 60 * 24 * 30;
-$ExpStr = "Expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";
-Header($ExpStr);
+//Header("Cache-Control: must-revalidate");
+//$offset = 60 * 60 * 24 * 30;
+//$ExpStr = "Expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";
+//Header($ExpStr);
 
 /*
 |--------------------------------------------------------------------------
